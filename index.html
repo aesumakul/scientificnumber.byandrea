@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #004080; /* Warna biru tua */
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        #studentInfo {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .valid {
+            background-color: rgba(0, 255, 0, 0.5); /* Warna hijau dengan opasitas 50% */
+            color: black; /* Warna teks hitam */
+        }
+        .invalid {
+            background-color: rgba(255, 0, 0, 0.5); /* Warna merah dengan opasitas 50% */
+            color: black; /* Warna teks hitam */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Scientific Number Checker</h1>
+    <input type="text" id="numberInput" placeholder="Enter a scientific number">
+    <button onclick="checkScientificNumber()">Check</button>
+    <div id="result"></div>
+    <div id="studentInfo">By: Andrea Emailly Sumakul (221011060001) - Information System</div>
+</div>
+
+<script>
+    function checkScientificNumber() {
+        var numberInput = document.getElementById("numberInput").value;
+        var scientificRegex = /^[+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;
+        var resultDiv = document.getElementById("result");
+
+        if (scientificRegex.test(numberInput)) {
+            resultDiv.innerHTML = "Valid scientific notation!";
+            resultDiv.className = "valid"; // Tambahkan kelas 'valid' untuk background hijau
+        } else {
+            resultDiv.innerHTML = "Not a valid scientific notation!";
+            resultDiv.className = "invalid"; // Tambahkan kelas 'invalid' untuk background merah
+        }
+    }
+</script>
+
+</body>
+</html>
